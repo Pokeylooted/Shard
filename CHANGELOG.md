@@ -13,3 +13,13 @@
 ### Removed
 
 - old readme
+
+## v0.0.2
+
+### Added or Changed
+- Added docker files
+- Added src/app.py for testing
+
+### Removed
+
+- setup.py in favour of docker-compose

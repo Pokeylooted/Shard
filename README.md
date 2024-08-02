@@ -106,9 +106,9 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    git clone https://github.com/Pokeylooted/Shard.git
    ```
-2. Install requirements
+2. Install requirements using setuptools
    ```sh
-   pip install -r requirements.txt
+   pip install .
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
