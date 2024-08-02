@@ -80,7 +80,7 @@ Shard is a project ment to replace other clipping softwares, for a fully opensou
 
 * [![Flask][flask.palletsprojects.com]][Flask-url]
 * [![Python][Python.org]][Python-URL]
-* [![JQuery][JQuery.com]][JQuery-url]
+* [![RQ][python-rq.org]][python-rq-url]
 * [![surrealdb][surrealdb.com]][surrealdb-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -214,8 +214,8 @@ Project Link: [https://github.com/Pokeylooted/Shard](https://github.com/Pokeyloo
 [Laravel-url]: https://laravel.com
 [Python.org]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
 [Python-url]: https://python.org
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery
-[JQuery-url]: https://jquery.com 
+[python-rq.org]: https://img.shields.io/badge/PythonRQ-darkred?style=for-the-badge&logo=rq
+[python-rq-url]: python-rq.org 
 [flask.palletsprojects.com]: https://img.shields.io/badge/Flask-000?style=for-the-badge&logo=flask&logoColor=white
 [Flask-url]: https://flask.palletsprojects.com/en/3.0.x/
 [surrealdb.com]: https://img.shields.io/badge/surrealdb-purple?style=for-the-badge&logo=surrealdb
