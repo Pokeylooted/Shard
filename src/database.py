@@ -1,4 +1,5 @@
 from surrealdb import Surreal
+import logging
 
 class Database:
     def __init__(self, url, namespace, database):
@@ -7,8 +8,13 @@ class Database:
         self.database = database
 
     async def connect(self):
-        await self.client.signin({"user": "root", "pass": "root"})
-        await self.client.use(self.namespace, self.database)
+        try:
+            await self.client.connect()
+            await self.client.signin({"user": "root", "pass": "root"})
+            await self.client.use(self.namespace, self.database)
+            logging.info("Successfully connected to the database.")
+        except Exception as e:
+            logging.error(f"Failed to connect to the database: {e}")
 
     async def create_user(self, user_id, username, password):
         await self.client.create("user", {
@@ -21,4 +27,4 @@ class Database:
         result = await self.client.query(f"SELECT * FROM user WHERE username = '{username}'")
         return result[0] if result else None
 
-db = Database("http://localhost:8000", "test_namespace", "test_database")
+db = Database("ws://surrealdb:8000/rpc", "test_namespace", "test_database")

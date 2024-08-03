@@ -6,7 +6,7 @@ from database import db
 
 user_bp = Blueprint('user', __name__)
 
-@user_bp.before_app_first_request
+@user_bp.before_app_request
 def initialize_database():
     asyncio.run(db.connect())
 

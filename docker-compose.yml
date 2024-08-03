@@ -7,5 +7,19 @@ services:
       - "5000:5000"
     volumes:
       - .:/app
+      - /app/venv/lib/python3.10/site-packages:/app/venv/lib/python3.10/site-packages
     environment:
       FLASK_ENV: development
+    networks:
+      - Shard
+  surrealdb:
+    image: surrealdb/surrealdb:latest
+    ports:
+      - "8000:8000"
+    command: start --log debug --user root --pass root memory
+    networks:
+      - Shard
+
+networks:
+  Shard:
+    driver: bridge
