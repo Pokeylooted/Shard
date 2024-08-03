@@ -71,7 +71,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/Pokeylooted/Shard)
 
 Shard is a project ment to replace other clipping softwares, for a fully opensource alternative.  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -120,7 +120,7 @@ To get a local copy up and running follow these simple example steps.
 
 Todo: Add usage
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://github.com/Pokeylooted/Shard)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -198,7 +198,7 @@ Project Link: [https://github.com/Pokeylooted/Shard](https://github.com/Pokeyloo
 [issues-shield]: https://img.shields.io/github/issues/Pokeylooted/Shard.svg?style=for-the-badge
 [issues-url]: https://github.com/Pokeylooted/Shard/issues
 [license-shield]: https://img.shields.io/github/license/Pokeylooted/Shard.svg?style=for-the-badge
-[license-url]: https://github.com/Pokeylooted/Shard/blob/master/LICENSE.txt
+[license-url]: https://github.com/Pokeylooted/Shard/blob/main/LICENSE
 [product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
@@ -215,7 +215,7 @@ Project Link: [https://github.com/Pokeylooted/Shard](https://github.com/Pokeyloo
 [Python.org]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
 [Python-url]: https://python.org
 [python-rq.org]: https://img.shields.io/badge/PythonRQ-darkred?style=for-the-badge&logo=rq
-[python-rq-url]: python-rq.org 
+[python-rq-url]: https://python-rq.org 
 [flask.palletsprojects.com]: https://img.shields.io/badge/Flask-000?style=for-the-badge&logo=flask&logoColor=white
 [Flask-url]: https://flask.palletsprojects.com/en/3.0.x/
 [surrealdb.com]: https://img.shields.io/badge/surrealdb-purple?style=for-the-badge&logo=surrealdb
