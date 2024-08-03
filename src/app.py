@@ -9,7 +9,7 @@ def hello_world():
     return 'Hello, World!'
 
 def main():
-    app.run(debug=True)
-
+    app.run(host="0.0.0.0", port=5000)
+    
 if __name__ == '__main__':
     main()
