@@ -13,7 +13,6 @@ app.register_blueprint(user_bp)
 
 @app.route('/')
 async def hello_world():
-    logging.info("Hello, World!")
     return 'Hello, World!'
 
 def main():

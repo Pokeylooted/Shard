@@ -78,7 +78,7 @@ Shard is a project ment to replace other clipping softwares, for a fully opensou
 
 ### Built With
 
-* [![Flask][flask.palletsprojects.com]][Flask-url]
+* [![Flask][quart.palletsprojects.com]][quart-url]
 * [![Python][Python.org]][Python-URL]
 * [![RQ][python-rq.org]][python-rq-url]
 * [![surrealdb][surrealdb.com]][surrealdb-url]
@@ -94,10 +94,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-* flask
-  ```sh
-  pip install flask
-  ```
+* Install latest [docker](https://docs.docker.com/engine/install/) and [docker compose](https://docs.docker.com/compose/install/)
 
 ### Installation
 
@@ -106,9 +103,9 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    git clone https://github.com/Pokeylooted/Shard.git
    ```
-2. Install requirements using setuptools
+2. Start the container
    ```sh
-   pip install .
+   docker compose up --build
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -216,7 +213,7 @@ Project Link: [https://github.com/Pokeylooted/Shard](https://github.com/Pokeyloo
 [Python-url]: https://python.org
 [python-rq.org]: https://img.shields.io/badge/PythonRQ-darkred?style=for-the-badge&logo=rq
 [python-rq-url]: https://python-rq.org 
-[flask.palletsprojects.com]: https://img.shields.io/badge/Flask-000?style=for-the-badge&logo=flask&logoColor=white
-[Flask-url]: https://flask.palletsprojects.com/en/3.0.x/
+[quart.palletsprojects.com]: https://img.shields.io/badge/Quart-pink?style=for-the-badge&logo=quart&logoColor=white
+[quart-url]: https://quart.palletsprojects.com/en/latest/
 [surrealdb.com]: https://img.shields.io/badge/surrealdb-purple?style=for-the-badge&logo=surrealdb
 [surrealdb-url]: https://surrealdb.com
