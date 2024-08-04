@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   web:
     build: .
@@ -7,11 +5,12 @@ services:
       - "5000:5000"
     volumes:
       - .:/app
-      - /app/venv/lib/python3.10/site-packages:/app/venv/lib/python3.10/site-packages
     environment:
       FLASK_ENV: development
     networks:
       - Shard
+    depends_on:
+      - surrealdb
   surrealdb:
     image: surrealdb/surrealdb:latest
     ports:
