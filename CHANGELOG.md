@@ -23,3 +23,12 @@
 ### Removed
 
 - setup.py in favour of docker-compose
+
+## v0.0.3
+
+### Added or Changed
+- Using FastAPI for backend
+- FastAPI logo to readme
+### Removed
+
+- Quart replaced by Fastapi

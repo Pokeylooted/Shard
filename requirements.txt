@@ -1,3 +1,5 @@
-quart
-quart_jwt_extended
+fastapi[standard]
+pyjwt[crypto]
+passlib[bcrypt]
+uvicorn
 surrealdb

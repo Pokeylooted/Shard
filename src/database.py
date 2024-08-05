@@ -2,9 +2,10 @@ from surrealdb import Surreal
 import logging
 logging.getLogger().setLevel(logging.DEBUG)
 
-SURREALDB_WS_URL = "ws://surrealdb:8000/rpc" 
+SURREALDB_WS_URL = "ws://surrealdb:5000/rpc" 
 
-async def insert_user_into_surreal(username, password):
+@DeprecationWarning
+async def insert_user_into_surreal(username, passwordhash, role):
     async with Surreal(SURREALDB_WS_URL) as db:
       
         await db.use("test_namespace", "test_database") 
@@ -14,7 +15,8 @@ async def insert_user_into_surreal(username, password):
             "user",
             {
                 "username": username,   
-                "password": password,
+                "passwordhash": passwordhash,
+                "role": role
             },
         ) 
 
@@ -22,7 +24,7 @@ async def insert_user_into_surreal(username, password):
         logging.info(f"User {username} created with ID {user_id}")
         return user_id.removeprefix("user:")  # Return the ID
 
-
+@DeprecationWarning
 async def get_user_from_db(userid):
     async with Surreal(SURREALDB_WS_URL) as db:
         await db.use("test_namespace", "test_database")
@@ -31,3 +33,9 @@ async def get_user_from_db(userid):
         # user = await db.query(f"SELECT * FROM user WHERE id = '{userid}'")
         print("User is: " + str(user))
         return user
+@DeprecationWarning
+async def login_user_db(username: str, passwordhash: str):
+    async with Surreal(SURREALDB_WS_URL) as db:
+        await db.use("test_namespace", "test_database")
+        user = await db.query(f"SELECT * FROM user WHERE username = '{username}' AND password = '{passwordhash}'")
+        return user[0]['result'][0]['id'] if user[0]['result'] else None

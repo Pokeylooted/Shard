@@ -13,8 +13,5 @@ COPY . /app
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
 
-# Define environment variable
-ENV FLASK_APP=src/app.py
-
 # Run app.py when the container launches
-CMD ["python", "src/app.py"]
+CMD ["uvicorn", "src.app:app", "--host", "0.0.0.0", "--port", "5000", "--reload", "--log-level", "debug"]

@@ -5,8 +5,8 @@ services:
       - "5000:5000"
     volumes:
       - .:/app
-    environment:
-      FLASK_ENV: development
+    env_file:
+      - .env
     networks:
       - Shard
     depends_on:
