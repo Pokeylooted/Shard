@@ -204,14 +204,14 @@ Project Link: [https://github.com/Pokeylooted/Shard](https://github.com/Pokeyloo
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Pokeylooted/Shard.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/Pokeylooted/Shard-Banner.svg?style=for-the-badge
 [contributors-url]: https://github.com/Pokeylooted/Shard/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Pokeylooted/Shard.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/Pokeylooted/Shard-Banner.svg?style=for-the-badge
 [forks-url]: https://github.com/Pokeylooted/Shard/network/members
-[stars-shield]: https://img.shields.io/github/stars/Pokeylooted/Shard.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/Pokeylooted/Shard-Banner.svg?style=for-the-badge
 [stars-url]: https://github.com/Pokeylooted/Shard/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Pokeylooted/Shard.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/Pokeylooted/Shard-Banner.svg?style=for-the-badge
 [issues-url]: https://github.com/Pokeylooted/Shard/issues
-[license-shield]: https://img.shields.io/github/license/Pokeylooted/Shard.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/Pokeylooted/Shard-Banner.svg?style=for-the-badge
 [license-url]: https://github.com/Pokeylooted/Shard/blob/main/LICENSE
 [product-screenshot]: images/screenshot.png
