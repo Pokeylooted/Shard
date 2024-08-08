@@ -23,7 +23,7 @@ import { type SubmitHandler, useForm } from "react-hook-form"
 import Logo from "/assets/images/Shard-Banner.svg"
 import type { Body_login_login_access_token as AccessToken } from "../client"
 import useAuth, { isLoggedIn } from "../hooks/useAuth"
-import { emailPattern } from "../utils"
+import { usernamePattern } from "../utils"
 
 export const Route = createFileRoute("/login")({
   component: Login,
@@ -89,7 +89,7 @@ function Login() {
             id="username"
             {...register("username", {
               required: "Username is required",
-              pattern: emailPattern,
+              pattern: usernamePattern,
             })}
             placeholder="Username"
             type="text"

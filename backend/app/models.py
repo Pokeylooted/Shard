@@ -7,7 +7,7 @@ from sqlmodel import Field, Relationship, SQLModel
 # Shared properties
 class UserBase(SQLModel):
     email: EmailStr = Field(unique=True, index=True, max_length=255)
-    username: str = Field(unique=True, max_length=255)
+    username: str = Field(unique=True, index=True,max_length=255)
     is_active: bool = True
     is_superuser: bool = False
 
@@ -26,6 +26,8 @@ class UserRegister(SQLModel):
 # Properties to receive via API on update, all are optional
 class UserUpdate(UserBase):
     email: EmailStr | None = Field(default=None, max_length=255)  # type: ignore
+    username: str | None = Field(default=None, max_length=255)  # type: ignore
+
     password: str | None = Field(default=None, min_length=8, max_length=40)
 
 
