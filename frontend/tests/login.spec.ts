@@ -1,5 +1,5 @@
 import { type Page, expect, test } from "@playwright/test"
-import { firstSuperuser, firstSuperuserPassword } from "./config.ts"
+import { firstSuperuserPassword, firstSuperuserUsername } from "./config.ts"
 import { randomPassword } from "./utils/random.ts"
 
 test.use({ storageState: { cookies: [], origins: [] } })
@@ -45,10 +45,10 @@ test("Forgot Password link is visible", async ({ page }) => {
   ).toBeVisible()
 })
 
-test("Log in with valid email and password ", async ({ page }) => {
+test("Log in with valid username and password ", async ({ page }) => {
   await page.goto("/login")
 
-  await fillForm(page, firstSuperuser, firstSuperuserPassword)
+  await fillForm(page, firstSuperuserUsername, firstSuperuserPassword)
   await page.getByRole("button", { name: "Log In" }).click()
 
   await page.waitForURL("/")
@@ -58,23 +58,23 @@ test("Log in with valid email and password ", async ({ page }) => {
   ).toBeVisible()
 })
 
-test("Log in with invalid email", async ({ page }) => {
+test("Log in with invalid username", async ({ page }) => {
   await page.goto("/login")
 
-  await fillForm(page, "invalidemail", firstSuperuserPassword)
+  await fillForm(page, "invalideUsername@", firstSuperuserPassword)
   await page.getByRole("button", { name: "Log In" }).click()
 
-  await expect(page.getByText("Invalid email address")).toBeVisible()
+  await expect(page.getByText("Invalid username")).toBeVisible()
 })
 
 test("Log in with invalid password", async ({ page }) => {
   const password = randomPassword()
 
   await page.goto("/login")
-  await fillForm(page, firstSuperuser, password)
+  await fillForm(page, firstSuperuserUsername, password)
   await page.getByRole("button", { name: "Log In" }).click()
 
-  await expect(page.getByText("Incorrect email or password")).toBeVisible()
+  await expect(page.getByText("Incorrect username or password")).toBeVisible()
 })
 
 // Log out
@@ -82,7 +82,7 @@ test("Log in with invalid password", async ({ page }) => {
 test("Successful log out", async ({ page }) => {
   await page.goto("/login")
 
-  await fillForm(page, firstSuperuser, firstSuperuserPassword)
+  await fillForm(page, firstSuperuserUsername, firstSuperuserPassword)
   await page.getByRole("button", { name: "Log In" }).click()
 
   await page.waitForURL("/")
@@ -99,7 +99,7 @@ test("Successful log out", async ({ page }) => {
 test("Logged-out user cannot access protected routes", async ({ page }) => {
   await page.goto("/login")
 
-  await fillForm(page, firstSuperuser, firstSuperuserPassword)
+  await fillForm(page, firstSuperuserUsername, firstSuperuserPassword)
   await page.getByRole("button", { name: "Log In" }).click()
 
   await page.waitForURL("/")

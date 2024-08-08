@@ -20,7 +20,7 @@ import { type SubmitHandler, useForm } from "react-hook-form"
 import Logo from "/assets/images/Shard-Banner.svg"
 import type { UserRegister } from "../client"
 import useAuth, { isLoggedIn } from "../hooks/useAuth"
-import { confirmPasswordRules, emailPattern, passwordRules } from "../utils"
+import { confirmPasswordRules, emailPattern, passwordRules, usernamePattern } from "../utils"
 
 export const Route = createFileRoute("/signup")({
   component: SignUp,
@@ -49,7 +49,7 @@ function SignUp() {
     criteriaMode: "all",
     defaultValues: {
       email: "",
-      full_name: "",
+      username: "",
       password: "",
       confirm_password: "",
     },
@@ -76,23 +76,26 @@ function SignUp() {
             src={Logo}
             alt="FastAPI logo"
             height="auto"
-            maxW="2xs"
+            maxW="11xs"
             alignSelf="center"
-            mb={4}
+            mb={-5}
           />
-          <FormControl id="full_name" isInvalid={!!errors.full_name}>
-            <FormLabel htmlFor="full_name" srOnly>
-              Full Name
+          <FormControl id="username" isInvalid={!!errors.username}>
+            <FormLabel htmlFor="username" srOnly>
+              Username
             </FormLabel>
             <Input
-              id="full_name"
+              id="username"
               minLength={3}
-              {...register("full_name", { required: "Full Name is required" })}
-              placeholder="Full Name"
+              {...register("username", 
+                { required: "username is required",
+                  pattern: usernamePattern,
+                })}
+              placeholder="Username"
               type="text"
             />
-            {errors.full_name && (
-              <FormErrorMessage>{errors.full_name.message}</FormErrorMessage>
+            {errors.username && (
+              <FormErrorMessage>{errors.username.message}</FormErrorMessage>
             )}
           </FormControl>
           <FormControl id="email" isInvalid={!!errors.email}>

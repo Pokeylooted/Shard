@@ -41,7 +41,7 @@ const UserInformation = () => {
     mode: "onBlur",
     criteriaMode: "all",
     defaultValues: {
-      full_name: currentUser?.full_name,
+      username: currentUser?.username,
       email: currentUser?.email,
     },
   })
@@ -84,14 +84,14 @@ const UserInformation = () => {
           as="form"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <FormControl>
+          <FormControl isInvalid={!!errors.username}>
             <FormLabel color={color} htmlFor="name">
-              Full name
+              Username
             </FormLabel>
             {editMode ? (
               <Input
                 id="name"
-                {...register("full_name", { maxLength: 30 })}
+                {...register("username", { maxLength: 30 })}
                 type="text"
                 size="md"
                 w="auto"
@@ -100,11 +100,11 @@ const UserInformation = () => {
               <Text
                 size="md"
                 py={2}
-                color={!currentUser?.full_name ? "ui.dim" : "inherit"}
+                color={!currentUser?.username ? "ui.dim" : "inherit"}
                 isTruncated
                 maxWidth="250px"
               >
-                {currentUser?.full_name || "N/A"}
+                {currentUser?.username || "N/A"}
               </Text>
             )}
           </FormControl>

@@ -131,7 +131,8 @@ You can set several variables, like:
 * `STACK_NAME`: The name of the stack used for Docker Compose labels and project name, this should be different for `staging`, `production`, etc. You could use the same domain replacing dots with dashes, e.g. `fastapi-project-example-com` and `staging-fastapi-project-example-com`.
 * `BACKEND_CORS_ORIGINS`: A list of allowed CORS origins separated by commas.
 * `SECRET_KEY`: The secret key for the FastAPI project, used to sign tokens.
-* `FIRST_SUPERUSER`: The email of the first superuser, this superuser will be the one that can create new users.
+* `FIRST_SUPERUSER_EMAIL`: The email of the first superuser, this superuser will be the one that can create new users.
+* `FIRST_SUPERUSER_USERNAME`: The username of the first superuser.
 * `FIRST_SUPERUSER_PASSWORD`: The password of the first superuser.
 * `SMTP_HOST`: The SMTP server host to send emails, this would come from your email provider (E.g. Mailgun, Sparkpost, Sendgrid, etc).
 * `SMTP_USER`: The SMTP server user to send emails.
@@ -258,7 +259,8 @@ The current Github Actions workflows expect these secrets:
 * `STACK_NAME_PRODUCTION`
 * `STACK_NAME_STAGING`
 * `EMAILS_FROM_EMAIL`
-* `FIRST_SUPERUSER`
+* `FIRST_SUPERUSER_EMAIL`
+* `FIRST_SUPERUSER_USERNAME`
 * `FIRST_SUPERUSER_PASSWORD`
 * `POSTGRES_PASSWORD`
 * `SECRET_KEY`

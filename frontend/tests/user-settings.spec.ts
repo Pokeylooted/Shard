@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test"
-import { firstSuperuser, firstSuperuserPassword } from "./config.ts"
+import { firstSuperuserPassword, firstSuperuserUsername } from "./config.ts"
 import { randomEmail, randomPassword } from "./utils/random"
 import { logInUser, logOutUser, signUpNewUser } from "./utils/user"
 
@@ -22,17 +22,17 @@ test("All tabs are visible", async ({ page }) => {
   }
 })
 
-test.describe("Edit user full name and email successfully", () => {
+test.describe("Edit user username and email successfully", () => {
   test.use({ storageState: { cookies: [], origins: [] } })
 
   test("Edit user name with a valid name", async ({ page }) => {
-    const fullName = "Test User"
+    const username = "Test User"
     const email = randomEmail()
     const updatedName = "Test User 2"
     const password = randomPassword()
 
     // Sign up a new user
-    await signUpNewUser(page, fullName, email, password)
+    await signUpNewUser(page, username, email, password)
 
     // Log in the user
     await logInUser(page, email, password)
@@ -40,7 +40,7 @@ test.describe("Edit user full name and email successfully", () => {
     await page.goto("/settings")
     await page.getByRole("tab", { name: "My profile" }).click()
     await page.getByRole("button", { name: "Edit" }).click()
-    await page.getByLabel("Full name").fill(updatedName)
+    await page.getByLabel("Username").fill(updatedName)
     await page.getByRole("button", { name: "Save" }).click()
     await expect(page.getByText("User updated successfully")).toBeVisible()
     // Check if the new name is displayed on the page
@@ -111,7 +111,7 @@ test.describe("Edit user with invalid data", () => {
     await page.goto("/settings")
     await page.getByRole("tab", { name: "My profile" }).click()
     await page.getByRole("button", { name: "Edit" }).click()
-    await page.getByLabel("Full name").fill(updatedName)
+    await page.getByLabel("Username").fill(updatedName)
     await page.getByRole("button", { name: "Cancel" }).first().click()
     await expect(
       page.getByLabel("My profile").getByText(fullName, { exact: true }),
@@ -280,7 +280,7 @@ test("Selected mode is preserved across sessions", async ({ page }) => {
 
   await logOutUser(page)
 
-  await logInUser(page, firstSuperuser, firstSuperuserPassword)
+  await logInUser(page, firstSuperuserUsername, firstSuperuserPassword)
   const isDarkMode = await page.evaluate(() =>
     document.body.classList.contains("chakra-ui-dark"),
   )

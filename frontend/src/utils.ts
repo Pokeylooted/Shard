@@ -5,9 +5,9 @@ export const emailPattern = {
   message: "Invalid email address",
 }
 
-export const namePattern = {
+export const usernamePattern = {
   value: /^[A-Za-z\s\u00C0-\u017F]{1,30}$/,
-  message: "Invalid name",
+  message: "Invalid username",
 }
 
 export const passwordRules = (isRequired = true) => {

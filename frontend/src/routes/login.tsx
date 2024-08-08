@@ -91,8 +91,8 @@ function Login() {
               required: "Username is required",
               pattern: emailPattern,
             })}
-            placeholder="Email"
-            type="email"
+            placeholder="Username"
+            type="text"
             required
           />
           {errors.username && (

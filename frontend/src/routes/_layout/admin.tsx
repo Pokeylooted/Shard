@@ -97,11 +97,11 @@ function UsersTable() {
               {users?.data.map((user) => (
                 <Tr key={user.id}>
                   <Td
-                    color={!user.full_name ? "ui.dim" : "inherit"}
+                    color={!user.username ? "ui.dim" : "inherit"}
                     isTruncated
                     maxWidth="150px"
                   >
-                    {user.full_name || "N/A"}
+                    {user.username || "N/A"}
                     {currentUser?.id === user.id && (
                       <Badge ml="1" colorScheme="teal">
                         You

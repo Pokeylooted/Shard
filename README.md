@@ -71,7 +71,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/Pokeylooted/Shard)
+[![Shard Screen Shot][Shard-screenshot]](https://github.com/Pokeylooted/Shard)
 
 Shard is a project ment to replace other clipping softwares, for a fully opensource alternative.  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -214,4 +214,4 @@ Project Link: [https://github.com/Pokeylooted/Shard](https://github.com/Pokeyloo
 [issues-url]: https://github.com/Pokeylooted/Shard/issues
 [license-shield]: https://img.shields.io/github/license/Pokeylooted/Shard-Banner.svg?style=for-the-badge
 [license-url]: https://github.com/Pokeylooted/Shard/blob/main/LICENSE
-[product-screenshot]: images/screenshot.png
+[Shard-screenshot]: images/screenshot.png
