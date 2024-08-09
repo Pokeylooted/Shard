@@ -228,9 +228,9 @@ export const $UserCreate = {
       type: "boolean",
       default: true,
     },
-    is_superuser: {
-      type: "boolean",
-      default: false,
+    role: {
+      type: "string",
+      default: "user",
     },
     username: {
       type: "string",
@@ -263,9 +263,9 @@ export const $UserPublic = {
       type: "boolean",
       default: true,
     },
-    is_superuser: {
-      type: "boolean",
-      default: false,
+    role: {
+      type: "string",
+      default: "user",
     },
     username: {
       type: "string",
@@ -331,9 +331,9 @@ export const $UserUpdate = {
       type: "boolean",
       default: true,
     },
-    is_superuser: {
-      type: "boolean",
-      default: false,
+    role: {
+      type: "string",
+      default: "user",
     },
     username: {
       type: "string",

@@ -43,6 +43,17 @@ def get_user_by_username(*, session: Session, username: str) -> User | None:
 
 
 def authenticate(*, session: Session, username: str, password: str) -> User | None:
+    """
+    Authenticates a user by verifying the provided username and password.
+
+    Args:
+        session (Session): The database session.
+        username (str): The username of the user.
+        password (str): The password of the user.
+
+    Returns:
+        User | None: The authenticated user if the username and password are valid, otherwise None.
+    """
     db_user = get_user_by_username(session=session, username=username)
     if not db_user:
         return None

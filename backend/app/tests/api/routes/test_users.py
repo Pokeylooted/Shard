@@ -9,7 +9,7 @@ from app.core.config import settings
 from app.core.security import verify_password
 from app.models import User, UserCreate
 from app.tests.utils.utils import random_email, random_lower_string, random_username
-
+from app.utils import UserRole
 
 def test_get_users_superuser_me(
     client: TestClient, superuser_token_headers: dict[str, str]
@@ -18,7 +18,7 @@ def test_get_users_superuser_me(
     current_user = r.json()
     assert current_user
     assert current_user["is_active"] is True
-    assert current_user["is_superuser"]
+    assert current_user["role"] == UserRole.admin
     assert current_user["email"] == settings.FIRST_SUPERUSER_EMAIL
     assert current_user["username"] == settings.FIRST_SUPERUSER_USERNAME
 
@@ -30,7 +30,7 @@ def test_get_users_normal_user_me(
     current_user = r.json()
     assert current_user
     assert current_user["is_active"] is True
-    assert current_user["is_superuser"] is False
+    assert current_user["role"] == UserRole.user
     assert current_user["email"] == settings.EMAIL_TEST_USER
 
 
@@ -268,7 +268,7 @@ def test_update_user_me_email_exists(
         json=data,
     )
     assert r.status_code == 409
-    assert r.json()["detail"] == "User with this email or username already exists"
+    assert r.json()["detail"] == "User with this email already exists"
 
 
 def test_update_password_me_same_password_error(

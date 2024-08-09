@@ -1,4 +1,5 @@
 import logging
+from enum import Enum
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -11,6 +12,10 @@ from jwt.exceptions import InvalidTokenError
 
 from app.core.config import settings
 
+class UserRole(Enum):
+    user: str = "user"
+    premium: str = "premium"
+    admin: str = "admin"
 
 @dataclass
 class EmailData:

@@ -4,6 +4,7 @@ import { Link } from "@tanstack/react-router"
 import { FiBriefcase, FiHome, FiSettings, FiUsers } from "react-icons/fi"
 
 import type { UserPublic } from "../../client"
+import { UserRole } from "../../client"
 
 const items = [
   { icon: FiHome, title: "Dashboard", path: "/" },
@@ -21,7 +22,7 @@ const SidebarItems = ({ onClose }: SidebarItemsProps) => {
   const bgActive = useColorModeValue("#E2E8F0", "#4A5568")
   const currentUser = queryClient.getQueryData<UserPublic>(["currentUser"])
 
-  const finalItems = currentUser?.is_superuser
+  const finalItems = currentUser?.role === UserRole.admin
     ? [...items, { icon: FiUsers, title: "Admin", path: "/admin" }]
     : items
 

@@ -55,7 +55,7 @@ export type UpdatePassword = {
 export type UserCreate = {
   email: string
   is_active?: boolean
-  is_superuser?: boolean
+  role?: string
   username: string
   password: string
 }
@@ -63,7 +63,7 @@ export type UserCreate = {
 export type UserPublic = {
   email: string
   is_active?: boolean
-  is_superuser?: boolean
+  role?: string
   username?: string | null
   id: string
 }
@@ -77,7 +77,7 @@ export type UserRegister = {
 export type UserUpdate = {
   email?: string | null
   is_active?: boolean
-  is_superuser?: boolean
+  role?: string
   username?: string | null
   password?: string | null
 }
@@ -96,4 +96,10 @@ export type ValidationError = {
   loc: Array<string | number>
   msg: string
   type: string
+}
+
+export enum UserRole {
+  user = "user",
+  premium = "premium",
+  admin = "admin",
 }

@@ -13,6 +13,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Select,
 } from "@chakra-ui/react"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { type SubmitHandler, useForm } from "react-hook-form"
@@ -48,7 +49,7 @@ const AddUser = ({ isOpen, onClose }: AddUserProps) => {
       username: "",
       password: "",
       confirm_password: "",
-      is_superuser: false,
+      role: "user",
       is_active: false,
     },
   })
@@ -156,9 +157,12 @@ const AddUser = ({ isOpen, onClose }: AddUserProps) => {
             </FormControl>
             <Flex mt={4}>
               <FormControl>
-                <Checkbox {...register("is_superuser")} colorScheme="teal">
-                  Is superuser?
-                </Checkbox>
+                <Select {...register("role")} placeholder="Select Role" colorScheme="teal">
+                  What role do they have?
+                  <option value="user">User</option>
+                  <option value="premium">Premium</option>
+                  <option value="admin">Admin</option>
+                </Select>
               </FormControl>
               <FormControl>
                 <Checkbox {...register("is_active")} colorScheme="teal">

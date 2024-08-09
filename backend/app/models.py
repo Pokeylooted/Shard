@@ -2,14 +2,14 @@ import uuid
 
 from pydantic import EmailStr
 from sqlmodel import Field, Relationship, SQLModel
-
+from app.utils import UserRole
 
 # Shared properties
 class UserBase(SQLModel):
     email: EmailStr = Field(unique=True, index=True, max_length=255)
     username: str = Field(unique=True, index=True,max_length=255)
+    role: UserRole = Field(default=UserRole.user)
     is_active: bool = True
-    is_superuser: bool = False
 
 
 # Properties to receive via API on creation

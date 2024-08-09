@@ -24,7 +24,7 @@ from app.models import (
     UserUpdate,
     UserUpdateMe,
 )
-from app.utils import generate_new_account_email, send_email
+from app.utils import generate_new_account_email, send_email, UserRole
 
 router = APIRouter()
 
@@ -56,10 +56,17 @@ def create_user(*, session: SessionDep, user_in: UserCreate) -> Any:
     Create new user.
     """
     user = crud.get_user_by_email(session=session, email=user_in.email)
-    if user:
+    if not user:
+        user = crud.get_user_by_username(session=session, username=user_in.username)
+        if user:
+            raise HTTPException(
+                status_code=400,
+                detail="User with this username already exists",
+            )
+    elif user:
         raise HTTPException(
             status_code=400,
-            detail="The user with this email already exists in the system.",
+            detail="User with this email already exists",
         )
 
     user = crud.create_user(session=session, user_create=user_in)
@@ -130,7 +137,7 @@ def delete_user_me(session: SessionDep, current_user: CurrentUser) -> Any:
     """
     Delete own user.
     """
-    if current_user.is_superuser:
+    if current_user.role == UserRole.admin:
         raise HTTPException(
             status_code=403, detail="Super users are not allowed to delete themselves"
         )
@@ -167,7 +174,7 @@ def read_user_by_id(
     user = session.get(User, user_id)
     if user == current_user:
         return user
-    if not current_user.is_superuser:
+    if current_user.role != UserRole.admin:
         raise HTTPException(
             status_code=403,
             detail="The user doesn't have enough privileges",

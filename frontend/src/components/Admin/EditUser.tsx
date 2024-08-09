@@ -13,6 +13,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Select,
 } from "@chakra-ui/react"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { type SubmitHandler, useForm } from "react-hook-form"
@@ -148,9 +149,13 @@ const EditUser = ({ user, isOpen, onClose }: EditUserProps) => {
             </FormControl>
             <Flex>
               <FormControl mt={4}>
-                <Checkbox {...register("is_superuser")} colorScheme="teal">
-                  Is superuser?
-                </Checkbox>
+                <Select {...register("role")} placeholder="Select Role" colorScheme="teal">
+                  Select role for this user
+                  <option value="user">User</option>
+                  <option value="premium">Premium</option>
+                  <option value="admin">Admin</option>
+                  <option value="admin">Admin</option>
+                </Select>
               </FormControl>
               <FormControl mt={4}>
                 <Checkbox {...register("is_active")} colorScheme="teal">
